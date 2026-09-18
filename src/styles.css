@@ -20,8 +20,7 @@ svg{width:22px;height:22px;fill:none;stroke:currentColor;stroke-width:1.8;stroke
 .nav-wrap{height:100%;display:flex;align-items:center;justify-content:space-between}
 .brand{display:flex;align-items:center;gap:10px;font:700 15px 'Manrope';color:#216985}
 .brand b{font-weight:500}
-.brand-mark{display:grid;place-items:center;width:30px;height:30px;background:linear-gradient(135deg,var(--green),var(--blue));color:#fff;border-radius:8px;transform:rotate(45deg);font-size:14px}
-.brand-mark::first-letter{transform:rotate(-45deg)}
+.brand-mark{width:auto;height:36px;display:block;object-fit:contain}
 .nav{display:flex;align-items:center;gap:22px;font-size:13px;font-weight:600}
 .nav>a:not(.btn){position:relative}
 .nav>a:not(.btn):after{content:'';position:absolute;left:0;bottom:-8px;width:0;height:2px;background:var(--blue);transition:.2s}
@@ -218,7 +217,7 @@ svg{width:22px;height:22px;fill:none;stroke:currentColor;stroke-width:1.8;stroke
 /* footer */
 footer{text-align:center;padding:60px 0 25px;border-top:1px solid var(--line);background:#f8fafb}
 .footer-brand{justify-content:center;font-size:20px;margin-bottom:8px}
-.footer-brand .brand-mark{width:38px;height:38px}
+.footer-brand .brand-mark{height:46px}
 footer>.container>p{max-width:640px;margin:14px auto 0;font-size:14px}
 .socials{display:flex;justify-content:center;gap:26px;margin:26px 0;font-size:13px;font-weight:600}
 .socials a{display:inline-flex;align-items:center;gap:8px;color:var(--muted)}

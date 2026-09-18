@@ -5,6 +5,7 @@ import heroOffice from './assets/hero-office.jpg'
 import aboutTeam from './assets/about-team.jpg'
 import leaderPhoto from './assets/leader.jpg'
 import worldMap from './assets/world-map.png'
+import skapsMark from './assets/skaps-mark.png'
 import gyansys from './assets/logos/gyansys.png'
 import kanerika from './assets/logos/kanerika.png'
 import safe from './assets/logos/safe.png'
@@ -61,7 +62,7 @@ function Header() {
   const [open, setOpen] = useState(false)
   return (
     <header className="header"><div className="container nav-wrap">
-      <a className="brand" href="#home" aria-label="SKAPS HR Solutions home"><span className="brand-mark">S</span><span>SKAPS <b>HR Solutions</b></span></a>
+      <a className="brand" href="#home" aria-label="SKAPS HR Solutions home"><img className="brand-mark" src={skapsMark} alt="SKAPS logo" /><span>SKAPS <b>HR Solutions</b></span></a>
       <button className="menu" aria-label="Toggle navigation" aria-expanded={open} onClick={() => setOpen(!open)}><span /><span /><span /></button>
       <nav className={open ? 'nav open' : 'nav'} aria-label="Main navigation">
         {nav.map(([label, id]) => <a key={id} onClick={() => setOpen(false)} href={`#${id}`}>{label}</a>)}
@@ -434,7 +435,7 @@ const socials = [['LinkedIn', 'linkedin'], ['Facebook', 'facebook'], ['Instagram
 function Footer() {
   return (
     <footer><div className="container">
-      <a className="brand footer-brand" href="#home"><span className="brand-mark">S</span><span>SKAPS <b>HR SOLUTIONS</b></span></a>
+      <a className="brand footer-brand" href="#home"><img className="brand-mark" src={skapsMark} alt="SKAPS logo" /><span>SKAPS <b>HR SOLUTIONS</b></span></a>
       <p>SKAPS HR Solutions is a trusted workforce management and recruitment solutions provider helping organizations streamline hiring, payroll, compliance, and employee management across multiple industries.</p>
       <div className="socials">{socials.map(([l, i]) => <a key={i} href="#home" aria-label={l}><Icon name={i} />{l}</a>)}</div>
       <div className="copyright">© 2026 SKAPS HR Solutions. All rights reserved.</div>
