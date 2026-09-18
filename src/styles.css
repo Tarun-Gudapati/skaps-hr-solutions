@@ -60,11 +60,15 @@ svg{width:22px;height:22px;fill:none;stroke:currentColor;stroke-width:1.8;stroke
 
 /* trust */
 .trust{text-align:center;padding:52px 0;border-bottom:1px solid var(--line)}
-.trust p{font-size:19px;color:var(--ink);font-weight:600;max-width:760px;margin:0 auto 30px}
+.trust p{font-size:19px;color:var(--ink);font-weight:600;max-width:760px;margin:0 auto 34px}
 .trust strong{color:var(--blue)}
-.logos{display:flex;flex-wrap:wrap;justify-content:center;gap:22px 40px;align-items:center;color:#7d8c94;font:700 15px 'Manrope'}
-.logos span{opacity:.8;transition:.2s}
-.logos span:hover{opacity:1;color:var(--blue)}
+.marquee{overflow:hidden;padding:6px 0;-webkit-mask:linear-gradient(90deg,transparent,#000 6%,#000 94%,transparent);mask:linear-gradient(90deg,transparent,#000 6%,#000 94%,transparent)}
+.marquee-track{display:flex;width:max-content;gap:24px;animation:logo-scroll 38s linear infinite;will-change:transform}
+.marquee:hover .marquee-track{animation-play-state:paused}
+.logo-card{flex:none;width:190px;height:104px;background:#fff;border:1px solid var(--line);border-radius:14px;display:grid;place-items:center;padding:18px 22px;box-shadow:0 8px 22px rgba(25,72,94,.06);transition:transform .25s,box-shadow .25s}
+.logo-card:hover{transform:translateY(-4px);box-shadow:var(--shadow)}
+.logo-card img{max-width:100%;max-height:100%;width:auto;height:auto;object-fit:contain}
+@keyframes logo-scroll{from{transform:translateX(0)}to{transform:translateX(calc(-50% - 12px))}}
 
 /* about */
 .split{display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:center}

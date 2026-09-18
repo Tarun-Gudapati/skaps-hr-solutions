@@ -4,6 +4,18 @@ import './styles.css'
 import heroOffice from './assets/hero-office.jpg'
 import aboutTeam from './assets/about-team.jpg'
 import leaderPhoto from './assets/leader.jpg'
+import gyansys from './assets/logos/gyansys.png'
+import kanerika from './assets/logos/kanerika.png'
+import safe from './assets/logos/safe.png'
+import snowrelic from './assets/logos/snowrelic.png'
+import squizify from './assets/logos/squizify.png'
+import ivymobility from './assets/logos/ivymobility.png'
+import microchip from './assets/logos/microchip.png'
+import ey from './assets/logos/ey.png'
+import wizcom from './assets/logos/wizcom.png'
+import marvell from './assets/logos/marvell.png'
+import torq from './assets/logos/torq.png'
+import arunachala from './assets/logos/arunachala.png'
 
 const nav = [
   ['Home', 'home'],
@@ -84,14 +96,28 @@ function Hero() {
   )
 }
 
-const clientLogos = ['GYANSYS', 'kanerika', 'SAFE', 'SNOWRELIC', 'Squizify', 'ivy mobility', 'MICROCHIP', 'EY', 'Wizcom', 'MARVELL', 'TORQ', 'Arunachala']
+const clientLogos = [
+  [gyansys, 'GyanSys'], [kanerika, 'Kanerika'], [safe, 'Safe Financial'], [snowrelic, 'SnowRelic'],
+  [squizify, 'Squizify'], [ivymobility, 'Ivy Mobility'], [microchip, 'Microchip'], [ey, 'EY'],
+  [wizcom, 'Wizcom Corporation'], [marvell, 'Marvell'], [torq, 'TORQ'], [arunachala, 'Arunachala'],
+]
 
 function Trust() {
   return (
     <section className="trust"><div className="container">
       <p>Trusted By Organizations Managing <strong>Modern And Distributed Workforces</strong> Across Multiple Industries.</p>
-      <div className="logos" aria-label="Client organizations">{clientLogos.map(l => <span key={l}>{l}</span>)}</div>
-    </div></section>
+    </div>
+    <div className="marquee" aria-label="Client organizations">
+      <div className="marquee-track">
+        {clientLogos.map(([src, name]) => (
+          <div className="logo-card" key={name}><img src={src} alt={name} loading="lazy" /></div>
+        ))}
+        {clientLogos.map(([src, name]) => (
+          <div className="logo-card" key={name + '-2'} aria-hidden="true"><img src={src} alt="" loading="lazy" /></div>
+        ))}
+      </div>
+    </div>
+    </section>
   )
 }
 
