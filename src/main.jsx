@@ -4,6 +4,7 @@ import './styles.css'
 import heroOffice from './assets/hero-office.jpg'
 import aboutTeam from './assets/about-team.jpg'
 import leaderPhoto from './assets/leader.jpg'
+import worldMap from './assets/world-map.png'
 import gyansys from './assets/logos/gyansys.png'
 import kanerika from './assets/logos/kanerika.png'
 import safe from './assets/logos/safe.png'
@@ -307,7 +308,12 @@ function GlobalMap() {
         <p>Local attention backed by the perspective needed to support modern and distributed teams.</p>
         <div className="region-tags"><span>United States</span><span>India (Headquarters)</span><span>Australia</span></div>
       </div>
-      <div className="map reveal" aria-label="Stylized world map"><Icon name="globe" /><i className="pin p1" /><i className="pin p2" /><i className="pin p3" /></div>
+      <div className="map reveal" aria-label="World map showing SKAPS presence">
+        <img className="map-img" src={worldMap} alt="World map outline" loading="lazy" />
+        <span className="map-pin p1"><i /><b>United States</b></span>
+        <span className="map-pin p2"><i /><b>India (Headquarters)</b></span>
+        <span className="map-pin p3"><i /><b>Australia</b></span>
+      </div>
     </div></section>
   )
 }
