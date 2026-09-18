@@ -3,7 +3,6 @@ import { createRoot } from 'react-dom/client'
 import './styles.css'
 import heroOffice from './assets/hero-office.jpg'
 import aboutTeam from './assets/about-team.jpg'
-import leaderPhoto from './assets/leader.jpg'
 import worldMap from './assets/world-map.png'
 import skapsMark from './assets/skaps-mark.png'
 import gyansys from './assets/logos/gyansys.png'
@@ -169,22 +168,22 @@ function PainAdvantage() {
 }
 
 const services = [
-  ['Payroll Outsourcing', 'Accurate, timely, and compliant payroll processing tailored to your organization\u2019s specific needs.', 'doc'],
-  ['Contract Staffing', 'Flexible workforce solutions to scale your team up or down based on project demands and business cycles.', 'people'],
-  ['HR Compliance', 'Navigate complex labor laws and statutory requirements with our expert compliance management.', 'shield'],
-  ['Employee Administration', 'Streamlined onboarding, benefits administration, and lifecycle management for your entire workforce.', 'briefcase'],
-  ['Remote Workforce', 'Tools and strategies to manage, monitor, and engage distributed teams effectively and securely.', 'globe'],
-  ['Office Infrastructure', 'Comprehensive support for physical workspace management and facility operations.', 'building'],
+  ['Payroll Outsourcing', 'Accurate, timely, and compliant payroll processing tailored to your organization\u2019s specific needs.', 'doc', '#2b7fbf', '#e8f2fb'],
+  ['Contract Staffing', 'Flexible workforce solutions to scale your team up or down based on project demands and business cycles.', 'people', '#2f9252', '#e7f5ec'],
+  ['HR Compliance', 'Navigate complex labor laws and statutory requirements with our expert compliance management.', 'shield', '#9b51c9', '#f4eafb'],
+  ['Employee Administration', 'Streamlined onboarding, benefits administration, and lifecycle management for your entire workforce.', 'briefcase', '#e2681f', '#fdefe2'],
+  ['Remote Workforce', 'Tools and strategies to manage, monitor, and engage distributed teams effectively and securely.', 'globe', '#17a89d', '#e2f6f4'],
+  ['Office Infrastructure', 'Comprehensive support for physical workspace management and facility operations.', 'building', '#e2516e', '#fdeaee'],
 ]
 
 function Services() {
   return (
     <section id="services" className="section"><div className="container">
       <SectionTitle eyebrow="What we do" title={<>Comprehensive <em>Workforce Solutions</em> for Growing Businesses</>} copy="Practical HR services that help teams move faster, operate confidently and stay focused on growth." />
-      <div className="cards">{services.map(([t, d, i], n) => (
+      <div className="cards">{services.map(([t, d, i, color, bg], n) => (
         <article className="card reveal" key={t}>
           <span className="card-num">0{n + 1}</span>
-          <span className="service-icon"><Icon name={i} /></span>
+          <span className="service-icon" style={{ color, background: bg }}><Icon name={i} /></span>
           <h3>{t}</h3><p>{d}</p>
           <a href="#contact" aria-label={`Discuss ${t}`}>Learn more <span>→</span></a>
         </article>
@@ -278,23 +277,6 @@ function Compliance() {
       </div>
       <div className="compliance-panel reveal">
         {items.map(i => <div className="status" key={i}><span>{i}</span><Icon name="check" /></div>)}
-      </div>
-    </div></section>
-  )
-}
-
-function Leadership() {
-  return (
-    <section className="section soft"><div className="container">
-      <SectionTitle title={<>The Leadership Driving <em>SKAPS</em> Forward</>} />
-      <div className="leader reveal">
-        <div className="leader-photo"><img src={leaderPhoto} alt="Srinivasarao Khasimsetty, Vice President Business Operations & Co-founder" loading="lazy" /></div>
-        <div className="leader-body">
-          <p>Srinivas is Vice President, Business Operations, with an accomplished track record in leading large-scale talent acquisition and workforce operations for global enterprises. He has held key leadership positions with industry-leading staffing organizations and consistently delivered high-impact workforce solutions across diverse industries and geographies.</p>
-          <p>His career reflects deep expertise in designing scalable recruitment strategies, driving operational excellence, and building high-performing teams while supporting complex hiring initiatives for global technology and Fortune 500 organizations.</p>
-          <strong>Srinivasarao Khasimsetty</strong>
-          <small>Vice President, Business Operations &amp; Co-founder</small>
-        </div>
       </div>
     </div></section>
   )
@@ -462,7 +444,6 @@ function App() {
       <Needs />
       <Process />
       <Compliance />
-      <Leadership />
       <GlobalMap />
       <Testimonials />
       <FAQ />
