@@ -165,6 +165,7 @@ svg{width:22px;height:22px;fill:none;stroke:currentColor;stroke-width:1.8;stroke
 /* global */
 .global{background:#f7fafb}
 .global-grid{display:grid;grid-template-columns:.85fr 1.15fr;gap:70px;align-items:center}
+.global-grid>*{min-width:0}
 .region-tags{display:flex;gap:8px;flex-wrap:wrap;margin-top:24px}
 .region-tags span{padding:8px 14px;border-radius:30px;background:#e5f0f4;color:var(--blue);font-size:12px;font-weight:700}
 .map{border:1px solid #cfdde3;border-radius:20px;background:linear-gradient(160deg,#fff,#eef5f8);position:relative;padding:26px;aspect-ratio:936/461}
@@ -257,6 +258,9 @@ footer>.container>p{max-width:640px;margin:14px auto 0;font-size:14px}
 }
 @media(max-width:600px){
   .container{width:min(100% - 28px,1180px)}
+  .brand{font-size:13px;gap:8px}
+  .brand-mark{height:32px}
+  .menu{width:44px;height:44px;padding:10px}
   .hero h1{font-size:2.5rem}
   .hero-photo img{height:360px}
   .float{padding:9px 11px}
@@ -267,11 +271,13 @@ footer>.container>p{max-width:640px;margin:14px auto 0;font-size:14px}
   .cards,.needs-cards,.benefit-grid,.industry-grid,.steps.five,.form-row{grid-template-columns:1fr}
   .stats-grid{grid-template-columns:repeat(2,1fr)}
   .stat:before{display:none!important}
-  .logos{gap:16px 24px}
   .section{padding:66px 0}
   .about-visual img{height:320px}
   .form{padding:22px}
-  .map{height:280px}
+  .map{width:100%;min-width:0;height:clamp(220px,70vw,280px);aspect-ratio:auto;overflow:hidden;padding:18px}
+  .map-img{inset:18px;width:calc(100% - 36px);height:calc(100% - 36px)}
+  .map-pin b{font-size:9px;padding:3px 7px}
+  .socials{flex-wrap:wrap;row-gap:14px}
   .service-modal-backdrop{padding:14px;align-items:end}
   .service-modal{padding:34px 22px 24px;border-radius:20px 20px 0 0;max-height:88vh}
   .service-modal-actions{flex-direction:column}
