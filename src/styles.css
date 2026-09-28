@@ -3,6 +3,7 @@
 *{box-sizing:border-box}
 html{scroll-behavior:smooth;scroll-padding-top:82px}
 body{margin:0;color:var(--ink);font-family:'DM Sans',sans-serif;background:#fff}
+body.modal-open{overflow:hidden}
 button,input,textarea{font:inherit}
 a{color:inherit;text-decoration:none}
 p{color:var(--muted);line-height:1.75}
@@ -109,7 +110,23 @@ svg{width:22px;height:22px;fill:none;stroke:currentColor;stroke-width:1.8;stroke
 .service-icon{width:50px;height:50px;border-radius:12px;display:grid;place-items:center;background:#eaf4f7;color:var(--blue);margin-bottom:24px}
 .card h3{font-size:18px}
 .card p{font-size:14px;min-height:72px}
-.card a{color:var(--blue);font-weight:700;font-size:13px}
+.card a,.card-link{color:var(--blue);font-weight:700;font-size:13px}
+.card-link{display:inline-flex;align-items:center;gap:4px;border:0;background:none;padding:0;cursor:pointer}
+.card-link:hover span{transform:translateX(3px)}
+.card-link span{transition:transform .2s}
+.service-modal-backdrop{position:fixed;inset:0;z-index:100;display:grid;place-items:center;padding:24px;background:rgba(7,28,40,.68);backdrop-filter:blur(7px);animation:modal-fade .2s ease}
+.service-modal{position:relative;width:min(620px,100%);max-height:min(760px,calc(100vh - 48px));overflow:auto;background:#fff;border-radius:20px;padding:42px;box-shadow:0 30px 90px rgba(3,22,34,.35);animation:modal-rise .25s ease}
+.service-modal-close{position:absolute;right:20px;top:18px;width:38px;height:38px;border:1px solid var(--line);border-radius:50%;background:#fff;color:var(--muted);font-size:26px;line-height:1;cursor:pointer}
+.service-modal-close:hover{color:var(--ink);border-color:#b7c9d1}
+.service-modal>.service-icon{margin-bottom:18px}
+.service-modal h2{font-size:clamp(1.8rem,4vw,2.4rem);margin:16px 48px 10px 0}
+.service-modal>p{font-size:15px;margin:0}
+.service-modal ul{list-style:none;padding:0;margin:24px 0;display:grid;gap:12px}
+.service-modal li{display:flex;align-items:flex-start;gap:12px;color:#3d4e59;font-size:14px;line-height:1.55}
+.service-modal li svg{flex:none;width:22px;height:22px;padding:4px;border-radius:50%;background:#e8f5e3;color:#5c923e}
+.service-modal-actions{display:flex;gap:12px;flex-wrap:wrap;margin-top:28px}
+@keyframes modal-fade{from{opacity:0}}
+@keyframes modal-rise{from{opacity:0;transform:translateY(14px) scale(.98)}}
 .needs-cards{grid-template-columns:repeat(4,1fr)}
 .needs-cards .card p{min-height:96px}
 
@@ -255,5 +272,8 @@ footer>.container>p{max-width:640px;margin:14px auto 0;font-size:14px}
   .about-visual img{height:320px}
   .form{padding:22px}
   .map{height:280px}
+  .service-modal-backdrop{padding:14px;align-items:end}
+  .service-modal{padding:34px 22px 24px;border-radius:20px 20px 0 0;max-height:88vh}
+  .service-modal-actions{flex-direction:column}
 }
 @media(prefers-reduced-motion:reduce){*,*:before,*:after{scroll-behavior:auto!important;transition:none!important;animation:none!important}.reveal{opacity:1;transform:none}.faq-item.open .faq-a{max-height:none}}

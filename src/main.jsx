@@ -168,26 +168,93 @@ function PainAdvantage() {
 }
 
 const services = [
-  ['Payroll Outsourcing', 'Accurate, timely, and compliant payroll processing tailored to your organization\u2019s specific needs.', 'doc', '#2b7fbf', '#e8f2fb'],
-  ['Contract Staffing', 'Flexible workforce solutions to scale your team up or down based on project demands and business cycles.', 'people', '#2f9252', '#e7f5ec'],
-  ['HR Compliance', 'Navigate complex labor laws and statutory requirements with our expert compliance management.', 'shield', '#9b51c9', '#f4eafb'],
-  ['Employee Administration', 'Streamlined onboarding, benefits administration, and lifecycle management for your entire workforce.', 'briefcase', '#e2681f', '#fdefe2'],
-  ['Remote Workforce', 'Tools and strategies to manage, monitor, and engage distributed teams effectively and securely.', 'globe', '#17a89d', '#e2f6f4'],
-  ['Office Infrastructure', 'Comprehensive support for physical workspace management and facility operations.', 'building', '#e2516e', '#fdeaee'],
+  {
+    title: 'Payroll Outsourcing',
+    summary: 'Accurate, timely, and compliant payroll processing tailored to your organization\u2019s specific needs.',
+    icon: 'doc', color: '#2b7fbf', background: '#e8f2fb',
+    detail: 'Our automated and ISO-certified payroll solution ensures payroll operations in India are managed with confidentiality, efficiency, and strict compliance, so your team can focus on core business activities while we handle salary administration.',
+    points: ['Proactive support and legislative updates', 'A dedicated personal manager', 'Strict employee-data confidentiality', 'Secure ERP access to payslips and leave information'],
+  },
+  {
+    title: 'Contract Staffing',
+    summary: 'Flexible workforce solutions to scale your team up or down based on project demands and business cycles.',
+    icon: 'people', color: '#2f9252', background: '#e7f5ec',
+    detail: 'SKAPS provides flexible staffing solutions that integrate with your existing HR function. We can work as an extension of your HR department or place dedicated HR professionals on site, with support tailored to your organization\u2019s requirements and business goals.',
+    points: ['Remote HR expertise that extends your team', 'A dedicated on-site HR partner', 'Customized staffing strategies aligned with your goals'],
+  },
+  {
+    title: 'HR Compliance',
+    summary: 'Navigate complex labor laws and statutory requirements with our expert compliance management.',
+    icon: 'shield', color: '#9b51c9', background: '#f4eafb',
+    detail: 'SKAPS provides statutory compliance services that help organizations navigate complex and changing labor laws, reduce occupational risk, and avoid penalties or legal complications.',
+    points: ['A comprehensive review of your current compliance status', 'A detailed report covering strengths and gaps', 'An actionable plan agreed with your team', 'Ongoing monthly compliance management and legal updates'],
+  },
+  {
+    title: 'Employee Administration',
+    summary: 'Streamlined onboarding, benefits administration, and lifecycle management for your entire workforce.',
+    icon: 'briefcase', color: '#e2681f', background: '#fdefe2',
+    detail: 'Our structured recruitment and employee-entry process helps identify, assess, select, and successfully onboard the right people while creating a smooth experience for employers and employees.',
+    points: ['Role definition and job-description preparation', 'Candidate screening, shortlisting, and interviews', 'Interview scheduling and selection support', 'Induction, process closure, and onboarding'],
+  },
+  {
+    title: 'Remote Workforce',
+    summary: 'Tools and strategies to manage, monitor, and engage distributed teams effectively and securely.',
+    icon: 'globe', color: '#17a89d', background: '#e2f6f4',
+    detail: 'For global companies accessing India\u2019s talent pool, SKAPS supports the setup and management of remote and hybrid workforces. We streamline hiring, onboarding, and employee management while accounting for local regulations and cultural requirements.',
+    points: ['Legal-entity and compliance setup in India', 'Talent acquisition and onboarding', 'Localized HR policies', 'Remote and hybrid work-model consulting', 'Ongoing HR and administrative support'],
+  },
+  {
+    title: 'Office Infrastructure',
+    summary: 'Comprehensive support for physical workspace management and facility operations.',
+    icon: 'building', color: '#e2516e', background: '#fdeaee',
+    detail: 'SKAPS provides end-to-end support for establishing a Center of Excellence or securing flexible co-working space in India, from site selection and infrastructure setup to registrations and ongoing operations.',
+    points: ['Strategic location and site selection', 'Office infrastructure and IT setup support', 'Legal and regulatory compliance', 'Co-working space identification and management', 'Operational support for COE establishment'],
+  },
 ]
 
+function ServiceModal({ service, onClose }) {
+  useEffect(() => {
+    const closeOnEscape = e => { if (e.key === 'Escape') onClose() }
+    document.addEventListener('keydown', closeOnEscape)
+    document.body.classList.add('modal-open')
+    return () => {
+      document.removeEventListener('keydown', closeOnEscape)
+      document.body.classList.remove('modal-open')
+    }
+  }, [onClose])
+
+  return (
+    <div className="service-modal-backdrop" role="presentation" onMouseDown={e => { if (e.target === e.currentTarget) onClose() }}>
+      <section className="service-modal" role="dialog" aria-modal="true" aria-labelledby="service-modal-title">
+        <button className="service-modal-close" type="button" onClick={onClose} aria-label="Close service details" autoFocus>×</button>
+        <span className="service-icon" style={{ color: service.color, background: service.background }}><Icon name={service.icon} /></span>
+        <span className="eyebrow">Service details</span>
+        <h2 id="service-modal-title">{service.title}</h2>
+        <p>{service.detail}</p>
+        <ul>{service.points.map(point => <li key={point}><Icon name="check" /><span>{point}</span></li>)}</ul>
+        <div className="service-modal-actions">
+          <a className="btn" href="#contact" onClick={onClose}>Discuss this service <span>→</span></a>
+          <button className="btn secondary" type="button" onClick={onClose}>Close</button>
+        </div>
+      </section>
+    </div>
+  )
+}
+
 function Services() {
+  const [selectedService, setSelectedService] = useState(null)
   return (
     <section id="services" className="section"><div className="container">
       <SectionTitle eyebrow="What we do" title={<>Comprehensive <em>Workforce Solutions</em> for Growing Businesses</>} copy="Practical HR services that help teams move faster, operate confidently and stay focused on growth." />
-      <div className="cards">{services.map(([t, d, i, color, bg], n) => (
-        <article className="card reveal" key={t}>
+      <div className="cards">{services.map((service, n) => (
+        <article className="card reveal" key={service.title}>
           <span className="card-num">0{n + 1}</span>
-          <span className="service-icon" style={{ color, background: bg }}><Icon name={i} /></span>
-          <h3>{t}</h3><p>{d}</p>
-          <a href="#contact" aria-label={`Discuss ${t}`}>Learn more <span>→</span></a>
+          <span className="service-icon" style={{ color: service.color, background: service.background }}><Icon name={service.icon} /></span>
+          <h3>{service.title}</h3><p>{service.summary}</p>
+          <button className="card-link" type="button" onClick={() => setSelectedService(service)} aria-haspopup="dialog">Learn more <span>→</span></button>
         </article>
       ))}</div>
+      {selectedService && <ServiceModal service={selectedService} onClose={() => setSelectedService(null)} />}
     </div></section>
   )
 }
