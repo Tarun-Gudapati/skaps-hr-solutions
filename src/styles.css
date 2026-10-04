@@ -77,6 +77,11 @@ svg{width:22px;height:22px;fill:none;stroke:currentColor;stroke-width:1.8;stroke
 .experience{position:absolute;right:18px;bottom:18px;background:var(--blue);color:#fff;border-radius:14px;padding:16px 22px;display:flex;align-items:center;gap:12px;box-shadow:0 12px 30px rgba(13,43,62,.3)}
 .experience strong{font:800 32px 'Manrope'}
 .experience span{font-size:11px;line-height:1.4;opacity:.92}
+.about-copy h2{margin:16px 0 20px}
+.about-copy>p{font-size:14px;line-height:1.7;margin:0 0 13px}
+.story-origin{display:flex;align-items:center;gap:16px;padding:14px 16px;margin-bottom:20px;border-left:3px solid var(--green);border-radius:0 10px 10px 0;background:var(--soft)}
+.story-origin strong{flex:none;font:700 13px 'Manrope';color:var(--blue)}
+.story-origin span{font-size:12px;line-height:1.45;color:var(--muted)}
 .text-link{font-weight:700;color:var(--blue)}
 
 /* stats bar */
@@ -273,6 +278,7 @@ footer>.container>p{max-width:640px;margin:14px auto 0;font-size:14px}
   .stat:before{display:none!important}
   .section{padding:66px 0}
   .about-visual img{height:320px}
+  .story-origin{align-items:flex-start;flex-direction:column;gap:4px}
   .form{padding:22px}
   .map{width:100%;min-width:0;height:clamp(220px,70vw,280px);aspect-ratio:auto;overflow:hidden;padding:18px}
   .map-img{inset:18px;width:calc(100% - 36px);height:calc(100% - 36px)}

@@ -129,11 +129,14 @@ function About() {
         <img src={aboutTeam} alt="SKAPS leadership team in a strategy meeting" loading="lazy" />
         <div className="experience"><strong>10+</strong><span>Years of<br />Industry Excellence</span></div>
       </div>
-      <div className="reveal">
+      <div className="about-copy reveal">
         <span className="eyebrow">About SKAPS</span>
-        <h2>All About <em>SKAPS HR Solutions</em></h2>
-        <p>SKAPS HR Solutions is a modern workforce management and workforce solutions provider delivering staffing, payroll outsourcing, and HR compliance services to organizations across diverse industries.</p>
-        <p>We specialize in helping businesses build efficient workforce structures, streamline operations, and manage compliance requirements through reliable and scalable HR solutions. Our team combines industry expertise with a people-focused approach to deliver customized workforce strategies that support long-term business growth and operational success.</p>
+        <h2>Our <em>Story</em></h2>
+        <div className="story-origin"><strong>Established July 2015</strong><span>Built on the foundation of KAPS Consultancy Services</span></div>
+        <p>SKAPS HR Solutions Private Limited emerged from the foundation of KAPS Consultancy Services, established in July 2015. Our journey is built on a commitment to excellence in HR and financial consulting, driven by collaboration, deep expertise, and a dedication to client success.</p>
+        <p>Embracing the philosophy that great achievements in business are the result of teamwork, not individual effort, SKAPS unites experienced professionals from various sectors. Our team brings extensive industry knowledge and local insights, ensuring every client engagement is marked by precision, integrity, and strategic value.</p>
+        <p>We specialize in comprehensive HR and statutory compliance services, upholding the highest ethical standards. Our focus on confidentiality, accuracy, and operational efficiency helps organizations mitigate risk and concentrate on their core growth objectives.</p>
+        <p>SKAPS takes a forward-thinking approach to building workforce strategies that align with business goals. We aim to create enduring partnerships and deliver a measurable positive impact through every project we undertake.</p>
         <a href="#process" className="text-link">Discover our approach →</a>
       </div>
     </div></section>
@@ -169,46 +172,76 @@ function PainAdvantage() {
 
 const services = [
   {
-    title: 'Payroll Outsourcing',
-    summary: 'Accurate, timely, and compliant payroll processing tailored to your organization\u2019s specific needs.',
-    icon: 'doc', color: '#2b7fbf', background: '#e8f2fb',
-    detail: 'Our automated and ISO-certified payroll solution ensures payroll operations in India are managed with confidentiality, efficiency, and strict compliance, so your team can focus on core business activities while we handle salary administration.',
+    title: 'Executive Search', summary: 'Identifying and securing top-tier senior leaders who drive business outcomes and lasting transformation.',
+    icon: 'target', color: '#2b7fbf', background: '#e8f2fb',
+    detail: 'SKAPS goes beyond advertised job postings to identify and engage senior-level leaders who can deliver meaningful business results and sustainable organizational change.',
+    points: ['Extensive professional and industry networks', 'Proactive, targeted candidate outreach', 'Confidential and time-sensitive delivery', 'Rigorous pre-qualification and quality assurance'],
+  },
+  {
+    title: 'Recruitment Process', summary: 'A systematic approach to efficiently identify, evaluate, select, and onboard the right candidates.',
+    icon: 'people', color: '#2f9252', background: '#e7f5ec',
+    detail: 'Our structured recruitment process helps identify, assess, and place the right candidates while creating a smooth experience for employers and prospective employees.',
+    points: ['Requirement consultation and role definition', 'Job descriptions and interview planning', 'Candidate screening and shortlisting', 'Selection, induction, and onboarding support'],
+  },
+  {
+    title: 'Staffing Solutions', summary: 'Adaptable staffing models that extend your HR department or provide dedicated on-site professionals.',
+    icon: 'building', color: '#9b51c9', background: '#f4eafb',
+    detail: 'SKAPS delivers flexible staffing solutions that integrate with your existing HR function, either as a remote extension of your team or through dedicated professionals working on site.',
+    points: ['Remote HR expertise that extends your team', 'A dedicated on-site HR partner', 'Customized strategies aligned with business goals'],
+  },
+  {
+    title: 'Interview Support', summary: 'Experienced HR professionals providing on-site assistance for candidate assessment and selection.',
+    icon: 'doc', color: '#e2681f', background: '#fdefe2',
+    detail: 'Our experienced HR professionals work alongside your recruitment managers to improve candidate assessment and selection, particularly during peak workloads or specialized hiring drives.',
+    points: ['Seasoned recruitment expertise', 'Support during peak recruitment periods', 'Help with targeted recruitment campaigns', 'Impartial and professional assessment'],
+  },
+  {
+    title: 'HR Consulting', summary: 'Expert advisory and strategic solutions for complex human-resources challenges.',
+    icon: 'briefcase', color: '#17a89d', background: '#e2f6f4',
+    detail: 'SKAPS provides strategic guidance and practical solutions that help organizations strengthen HR operations, solve complex people challenges, and maintain regulatory compliance.',
+    points: ['HR policies and procedures', 'Performance-management systems', 'Compensation and benefits planning', 'Organizational change and employee relations'],
+  },
+  {
+    title: 'Payroll Management (India)', summary: 'Precise and efficient payroll services for seamless salary administration in India.',
+    icon: 'doc', color: '#e2516e', background: '#fdeaee',
+    detail: 'Our automated and ISO-certified solution manages Indian payroll with confidentiality, efficiency, and strict compliance so your team can stay focused on core business activities.',
     points: ['Proactive support and legislative updates', 'A dedicated personal manager', 'Strict employee-data confidentiality', 'Secure ERP access to payslips and leave information'],
   },
   {
-    title: 'Contract Staffing',
-    summary: 'Flexible workforce solutions to scale your team up or down based on project demands and business cycles.',
-    icon: 'people', color: '#2f9252', background: '#e7f5ec',
-    detail: 'SKAPS provides flexible staffing solutions that integrate with your existing HR function. We can work as an extension of your HR department or place dedicated HR professionals on site, with support tailored to your organization\u2019s requirements and business goals.',
-    points: ['Remote HR expertise that extends your team', 'A dedicated on-site HR partner', 'Customized staffing strategies aligned with your goals'],
+    title: 'US Payroll Services', summary: 'Expert payroll processing and compliance for businesses operating in the United States.',
+    icon: 'chart', color: '#3d78c5', background: '#e8f0fb',
+    detail: 'SKAPS handles complex federal, state, and local payroll requirements for US workforces, delivering accurate and timely processing while your team concentrates on business operations.',
+    points: ['Wages, deductions, and withholdings', 'Federal, state, and local tax filings', 'Direct deposits and paystubs', 'Year-end forms and new-hire reporting'],
   },
   {
-    title: 'HR Compliance',
-    summary: 'Navigate complex labor laws and statutory requirements with our expert compliance management.',
-    icon: 'shield', color: '#9b51c9', background: '#f4eafb',
-    detail: 'SKAPS provides statutory compliance services that help organizations navigate complex and changing labor laws, reduce occupational risk, and avoid penalties or legal complications.',
-    points: ['A comprehensive review of your current compliance status', 'A detailed report covering strengths and gaps', 'An actionable plan agreed with your team', 'Ongoing monthly compliance management and legal updates'],
+    title: 'Training & Development', summary: 'Tailored learning programs that strengthen skills and improve organizational productivity.',
+    icon: 'spark', color: '#8a5bc7', background: '#f2eafa',
+    detail: 'We identify skill gaps and build engaging workshops, seminars, and e-learning programs tailored to your industry and business requirements.',
+    points: ['Leadership-development programs', 'Skill-enhancement workshops', 'Communication and teamwork training', 'Performance coaching and mentoring'],
   },
   {
-    title: 'Employee Administration',
-    summary: 'Streamlined onboarding, benefits administration, and lifecycle management for your entire workforce.',
-    icon: 'briefcase', color: '#e2681f', background: '#fdefe2',
-    detail: 'Our structured recruitment and employee-entry process helps identify, assess, select, and successfully onboard the right people while creating a smooth experience for employers and employees.',
-    points: ['Role definition and job-description preparation', 'Candidate screening, shortlisting, and interviews', 'Interview scheduling and selection support', 'Induction, process closure, and onboarding'],
+    title: 'Compliance & Legal', summary: 'Support for complex labor laws and regulations that minimizes risk and protects legal standing.',
+    icon: 'shield', color: '#d06074', background: '#fbecef',
+    detail: 'SKAPS helps organizations navigate changing labor laws and statutory requirements, reducing occupational risk and preventing penalties or legal complications.',
+    points: ['Comprehensive compliance audit', 'Detailed strengths-and-gaps report', 'Clear and actionable improvement plan', 'Ongoing monthly compliance management'],
   },
   {
-    title: 'Remote Workforce',
-    summary: 'Tools and strategies to manage, monitor, and engage distributed teams effectively and securely.',
-    icon: 'globe', color: '#17a89d', background: '#e2f6f4',
-    detail: 'For global companies accessing India\u2019s talent pool, SKAPS supports the setup and management of remote and hybrid workforces. We streamline hiring, onboarding, and employee management while accounting for local regulations and cultural requirements.',
-    points: ['Legal-entity and compliance setup in India', 'Talent acquisition and onboarding', 'Localized HR policies', 'Remote and hybrid work-model consulting', 'Ongoing HR and administrative support'],
+    title: 'HR Technology Solutions', summary: 'Innovative tools and platforms that optimize HR operations and improve efficiency.',
+    icon: 'chart', color: '#2c8d70', background: '#e6f5f0',
+    detail: 'SKAPS helps select, implement, and optimize HR technology that streamlines processes and creates a stronger employee experience.',
+    points: ['HRIS implementation and optimization', 'Applicant Tracking System setup', 'Performance-management software integration', 'Payroll, analytics, and reporting tools'],
   },
   {
-    title: 'Office Infrastructure',
-    summary: 'Comprehensive support for physical workspace management and facility operations.',
-    icon: 'building', color: '#e2516e', background: '#fdeaee',
-    detail: 'SKAPS provides end-to-end support for establishing a Center of Excellence or securing flexible co-working space in India, from site selection and infrastructure setup to registrations and ongoing operations.',
-    points: ['Strategic location and site selection', 'Office infrastructure and IT setup support', 'Legal and regulatory compliance', 'Co-working space identification and management', 'Operational support for COE establishment'],
+    title: 'Global Workforce Solutions', summary: 'Establishing and managing compliant remote and hybrid workforces in India.',
+    icon: 'globe', color: '#177e9b', background: '#e5f4f7',
+    detail: 'We support global companies entering India by simplifying hiring, onboarding, payroll, policies, and ongoing workforce management while accounting for local regulations and culture.',
+    points: ['Legal-entity and compliance setup', 'Talent acquisition and onboarding', 'Localized HR-policy development', 'Remote and hybrid model consulting'],
+  },
+  {
+    title: 'COE & Co-working Setup', summary: 'End-to-end support for Centers of Excellence and flexible co-working spaces in India.',
+    icon: 'building', color: '#c27631', background: '#faefe4',
+    detail: 'SKAPS helps global companies establish a physical presence in India through site selection, infrastructure setup, registrations, workspace sourcing, and ongoing operations.',
+    points: ['Strategic location and site selection', 'Office infrastructure and IT support', 'Legal and regulatory compliance', 'Co-working and COE operational support'],
   },
 ]
 
@@ -248,7 +281,7 @@ function Services() {
       <SectionTitle eyebrow="What we do" title={<>Comprehensive <em>Workforce Solutions</em> for Growing Businesses</>} copy="Practical HR services that help teams move faster, operate confidently and stay focused on growth." />
       <div className="cards">{services.map((service, n) => (
         <article className="card reveal" key={service.title}>
-          <span className="card-num">0{n + 1}</span>
+          <span className="card-num">{String(n + 1).padStart(2, '0')}</span>
           <span className="service-icon" style={{ color: service.color, background: service.background }}><Icon name={service.icon} /></span>
           <h3>{service.title}</h3><p>{service.summary}</p>
           <button className="card-link" type="button" onClick={() => setSelectedService(service)} aria-haspopup="dialog">Learn more <span>→</span></button>
